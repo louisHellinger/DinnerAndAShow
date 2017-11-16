@@ -1,0 +1,699 @@
+html, body {}
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+div {
+  /*border:1px solid yellow;*/
+}
+
+@font-face {
+  font-family: AbrahamLincoln;
+  src: url('../fonts/AbrahamLincoln.ttf');
+}
+
+@font-face {
+  font-family: Savoye LET;
+  src: url('..fonts/Savoye LET.ttc');
+}
+
+#introText {
+  font-family: AbrahamLincoln, Times, serif;
+  color: white;
+  font-size: 2em;
+  letter-spacing: 1px;
+  text-shadow: 2px 3px 5px black;
+  margin-bottom: 0px;
+  padding: 0% 15%;
+}
+
+#header-copy {
+  font-size: 20px;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #970606;
+}
+
+.addPadding {
+  margin: 20px 0px;
+}
+
+body {
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 14px;
+}
+
+input {
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  border-radius: 50px;
+}
+
+h2 {
+  font-family: AbrahamLincoln, Times, serif;
+  font-size: 28px;
+  text-transform: uppercase;
+  text-align: center;
+  color: #970606;
+}
+
+h2.restTitle {
+  font-family: AbrahamLincoln, Times, serif;
+  font-size: 28px;
+  text-transform: capitalize;
+  color: #970606;
+  text-align: left;
+  /*margin-bottom:10px;*/
+  /*border-bottom:dotted 1px #970606;*/
+  padding-top: 10px;
+  width: 400px;
+  margin-bottom: 0px;
+}
+
+h3 {
+  font-family: AbrahamLincoln, Times, serif;
+  margin: 0px;
+  font-size: 36px;
+  font-weight: bold;
+  white-space: nowrap;
+  color: #970606;
+}
+
+h4 {
+  font-family: AbrahamLincoln, Times, serif;
+  color: #970606;
+  font-size: 36px;
+  text-align: center;
+}
+
+hr {
+  border-top: 1px solid #8c8b8b;
+  border-bottom: 1px solid #fff;
+}
+
+.abrahamP {
+  font-family: AbrahamLincoln, Times, serif;
+  color: white;
+  font-size: 4em;
+  letter-spacing: 1px;
+  margin-bottom: 0px;
+}
+
+.textShadow {
+  text-shadow: 2px 3px 5px black;
+}
+
+.header-text {
+  color: white;
+  font-size: 14px !important;
+  margin: 0 !important;
+  margin: 0 auto;
+  padding: 0 !important;
+}
+
+p .plot {
+  margin-bottom: 12px;
+}
+
+.descriptions {
+  font-size: 16px;
+  white-space: nowrap;
+}
+
+.mainSearch {
+  margin-top: 10px;
+  /*border:1px solid orange;*/
+  /*  text-align:center;*/
+}
+
+.mainSearchSub {
+  float: left;
+  /*display:inline;*/
+  /*border:1px solid orange;*/
+  margin-top: 2% !important;
+  margin-left: 3%;
+  /*width: 60%;*/
+  text-align: left;
+  white-space: nowrap;
+  font-size: 20px;
+  padding: 5px;
+}
+
+#inputs {
+  width: 100%;
+  /*margin: 0 auto;*/
+  margin-top: 2%;
+  margin-bottom: 2%;
+  /*display:inline;*/
+  float: left;
+  text-align: center;
+}
+
+#search-show {
+  width: 400px;
+  border-radius: 50px;
+  font-size: 22px;
+  text-align: center;
+  outline: none;
+}
+
+.mainLogo {
+  width: 400px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+.theater-name {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.mainLogoSub {
+  width: 300px;
+  margin-left: 20%;
+  margin-bottom: 1%;
+  float: left;
+  /*border:1px solid orange;*/
+}
+
+.box-shadow {
+  box-shadow: 4px 3px 5px black;
+}
+
+.img-box-shadow2 {
+  box-shadow: 2px 2px 4px lightgrey;
+}
+
+.img-box-shadow {
+  box-shadow: 2px 2px 4px lightgrey;
+}
+
+.img-box-shadow:hover {
+  box-shadow: 0px 0px 20px grey;
+}
+
+#logoSVG {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  text-shadow: 4px 3px 5px black;
+}
+
+.container {
+  width: 90%;
+  margin-bottom: 100px;
+  padding-top: 10px;
+}
+
+.reduced {
+  height: 200px;
+  float: left;
+  margin-left: 20px;
+}
+
+.jumbotron {
+  background-image: url('../images/broadway-splash-2.jpg');
+  background-size: 80%;
+  background-position: center;
+  text-align: center;
+  overflow: auto;
+  padding: 2% 0%;
+  margin-bottom: 0px;
+}
+
+.mainImageContainer {
+  text-align: center;
+}
+
+.descriptionAdjust {
+  margin-left: -.5%;
+  margin-top: 2%;
+  padding-top: 20px;
+}
+
+#slidingDiv_1, #slidingDiv_2, #slidingDiv_3, #slidingDiv_4, #slidingDiv_5 {
+  /*height:300px;*/
+  /*background-color: #99CCFF;*/
+  padding: 10px;
+  margin-top: 10px;
+  /*border-bottom:5px solid #3399FF;*/
+  display: none;
+  overflow: auto;
+}
+
+img.recoImage {
+  display: inline;
+  margin-left: 10px;
+  /*height:300px;*/
+  /*float:left;*/
+}
+
+.imageCrop {
+  overflow: hidden;
+}
+
+.col {
+  text-align: center;
+}
+
+.imgContainer {
+  /*width:400px;*/
+  /*margin-right:3%;*/
+}
+
+.showRecommendation {
+  height: 300px;
+}
+
+.row {
+  /*border:2px solid red;*/
+}
+
+.restImageContainer {
+  height: 30%;
+}
+
+
+/*.thumbnail {
+    height:100px;
+}*/
+
+.smallText {
+  font-size: 14px;
+}
+
+#display_restaurants {
+  margin: 20px 0px;
+}
+
+.error {
+  border: 2px solid red;
+}
+
+.displayBtn {
+  display: block;
+}
+
+.mainPageTitle {
+  margin-bottom: 40px;
+}
+
+.btn {
+  color: white;
+  background-color: #970606;
+  /*border-color:black;*/
+  outline: none;
+  margin-top: 12px;
+}
+
+.italics {
+  font-style: italic;
+}
+
+.btn:link {
+  background-color: #970606;
+  color: white;
+  border-color: black;
+  outline: none;
+}
+
+.btn:visited {
+  background-color: #970606;
+  color: white;
+  border-color: black;
+  outline: none;
+}
+
+.btn:hover {
+  background-color: black;
+  color: white;
+  border-color: #970606;
+  outline: none;
+}
+
+.btn:active {
+  background-color: #970606;
+  color: white;
+  /*border-color:black;*/
+  outline: none;
+}
+
+.btn:focus {
+  background-color: #970606;
+  color: white;
+  /*border-color:black;*/
+  outline: none;
+}
+
+.increaseSize {
+  width: 600px;
+}
+
+#alert-header {
+  color: white;
+  text-align: center;
+  font-size: 16px;
+  /*padding:6px 0px;*/
+  line-height: 2;
+  background-color: #970606;
+  /*border-bottom: 1px solid #970606;*/
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.theatreName {
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+.address {
+  font-size: 16px;
+}
+
+#footerHolderP {
+  background-image: url('../images/footer-back.jpg');
+  /* background-repeat: no-repeat;*/
+  background-position: center;
+  text-align: center;
+  padding: 3% 0;
+}
+
+.goButton {
+  position: absolute;
+  margin-left: -37px;
+  margin-top: -6px;
+  bottom: 10;
+  z-index: 10;
+  width: 50px;
+  outline: none;
+}
+
+.removeMargin {
+  margin-bottom: 0px;
+}
+
+.removeSideMargin {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.margin-top {
+  margin-top: 30px;
+}
+
+#featuredRestaurant {
+  border: 1px dotted black;
+  /*text-align:center;*/
+  padding: 0px 0px 20px 0px;
+  overflow: auto;
+}
+
+#featured-rest-header {
+  background-color: black;
+  text-align: center;
+  padding: 3px 0px 0px 0px;
+}
+
+#featured-rest-header p {
+  font-family: AbrahamLincoln, Times, serif;
+  ;
+  color: white;
+  font-size: 40px;
+  /*    text-transform:uppercase;*/
+  line-height: 1;
+  padding: 6px 0px;
+}
+
+.image300px {
+  height: 350px;
+}
+
+.flex-container {
+  display: -webkit-flex;
+  display: flex;
+  overflow: auto;
+  padding-top: 20px;
+}
+
+.flex-item {
+  background-color: white;
+  flex-direction: column;
+}
+
+#rand-rest-reco {
+  padding: 20px 0;
+  margin: 0 auto;
+}
+
+.redChange {
+  color: #970606;
+}
+
+.centered {
+  text-align: center;
+  width: 100%;
+  margin: 0 auto;
+}
+
+
+/*Kaitlyn Styles*/
+
+#weather-map-container {
+  margin-top: 15px;
+  /*max-width:1000px;*/
+}
+
+#weather-widget {
+  border: 5px solid #970606;
+  padding-left: 0;
+  width: 410px;
+  height: 370px;
+  margin: 0 auto;
+}
+
+#google-map {
+  border: 5px solid #970606;
+  width: 410px;
+  height: 370px;
+  margin: 0 auto;
+}
+
+#table {
+  width: 400px;
+  height: 262px;
+  font-size: 15px;
+  background-color: #000;
+  color: white;
+}
+
+#table td {
+  font-size: 17px;
+}
+
+.main-weather {
+  text-align: center;
+  width: 58%;
+  border-right: 1px solid white;
+}
+
+.weather-heading {
+  background-color: black;
+  width: 400px;
+  padding: 10px;
+}
+
+#weather-title-heading {
+  font-family: AbrahamLincoln, Times, serif;
+  font-size: 45px;
+  text-align: center;
+  color: #970606;
+  font-family: ;
+}
+
+.clear {
+  float: none;
+  clear: both;
+}
+
+#temp {
+  font-size: 50px;
+  font-weight: 20px;
+  margin-bottom: 30px;
+  color: white;
+}
+
+#icon {
+  height: 100px;
+  width: 110px;
+  margin: 0 0 0 60px;
+}
+
+#weather-description {
+  padding: 4px 0;
+  text-transform: capitalize;
+}
+
+.other-weather-info {
+  padding-left: 30px;
+}
+
+
+/* Begin Weather Icon Classes*/
+
+.sunny {
+  background-image: url("../images/weather-icons.png");
+  border: 1px solid black;
+  background-repeat: no-repeat;
+  background-position: -65px -105px;
+}
+
+.partlyCloudyDay {
+  background-image: url('../images/weather-icons.png');
+  background-repeat: no-repeat;
+  background-position: -250px -110px;
+}
+
+.partlyCloudyNight {
+  background-image: url('../images/weather-icons.png');
+  background-repeat: no-repeat;
+  background-position: -79px -610px;
+}
+
+.clearNight {
+  background-image: url('../images/weather-icons.png');
+  background-repeat: no-repeat;
+  background-position: -445px -110px;
+}
+
+.cloudy {
+  background-image: url('../images/weather-icons.png');
+  background-repeat: no-repeat;
+  background-position: -440px -607px;
+}
+
+.lightRain {
+  background-image: url('../images/weather-icons.png');
+  background-repeat: no-repeat;
+  background-position: -830px -105px;
+}
+
+.snow {
+  background-image: url('../images/weather-icons.png');
+  background-repeat: no-repeat;
+  background-position: -65px -285px;
+}
+
+.rain {
+  background-image: url('../images/weather-icons.png');
+  background-repeat: no-repeat;
+  background-position: -835px -465px;
+}
+
+.thunderstorm {
+  background-image: url('../images/weather-icons.png');
+  background-repeat: no-repeat;
+  background-position: -630px -805px;
+}
+
+.fog {
+  background-image: url('../images/weather-icons.png');
+  background-repeat: no-repeat;
+  background-position: -79px -800px;
+}
+
+
+/* End Weather Icon Classes*/
+
+@media only screen and (max-width: 930px) {
+  .image300px {
+    height: 200px;
+  }
+  #search-show {
+    width: 300px;
+    border-radius: 50px;
+    font-size: 22px;
+    text-align: center;
+    outline: none;
+  }
+  .mainLogoSub {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    /*border:1px solid orange;*/
+    float: none;
+  }
+  .jumbotron {
+    text-align: center;
+    padding-top: 20px;
+  }
+  .mainSearchSub {
+    margin: 0 auto;
+    width: 100%;
+  }
+  #introText {
+    font-size: 2em;
+    letter-spacing: 1px;
+    padding: 4% 20% 2% 20%;
+  }
+  #weather-widget {
+    margin-top: 20px;
+  }
+}
+
+@media only screen and (max-width: 760px) {
+  .mainLogo {
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+  }
+  .image300px {
+    height: 150px;
+  }
+  h3 {
+    font-size: 22px;
+  }
+  #col1 {
+    margin-left: 2%;
+  }
+  #search-show {
+    width: 300px;
+    border-radius: 50px;
+    font-size: 22px;
+    text-align: center;
+    outline: none;
+  }
+  .mainLogoSub {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    /*border:1px solid orange;*/
+    float: none;
+  }
+  .jumbotron {
+    text-align: center;
+    padding-top: 20px;
+  }
+  .mainSearchSub {
+    width: 100%;
+    white-space: normal;
+    text-align: center;
+    padding: 0;
+  }
+  #introText {
+    font-size: 1.5em;
+    letter-spacing: 1px;
+    padding: 5% 10% 0% 10%;
+  }
+  #weather-widget {
+    margin-top: 20px;
+  }
+  .header-text {
+    padding: 0% 10%;
+    text-align: center;
+    /*margin:0 auto;*/
+  }
+}
