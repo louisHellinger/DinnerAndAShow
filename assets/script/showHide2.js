@@ -283,7 +283,7 @@ $(document).ready(function() {
     // showTitle = 3662794;
     // showTitle = urlID;
 
-    queryURL = "https://seat-geek-proxy.herokuapp.com/2/events?client_id=ODkxMDA2MnwxNTA1NDc2Njg3Ljkx&client_secret=d03ee2bc8b3508b71abadabe57072965260caf9a20d80887580eb4473fe42620&lat=40.7589&lon=-73.9851&range=2mi&q=" + showTitle + "&taxonomies.id=3030000&taxonomies.name=theater_broadway";
+    queryURL = "https://api.seatgeek.com/2/events?client_id=ODkxMDA2MnwxNTA1NDc2Njg3Ljkx&client_secret=d03ee2bc8b3508b71abadabe57072965260caf9a20d80887580eb4473fe42620&lat=40.7589&lon=-73.9851&range=2mi&q=" + showTitle + "&taxonomies.id=3030000&taxonomies.name=theater_broadway";
     $.ajax({
       url: queryURL,
       method: "GET",
@@ -438,7 +438,7 @@ $(document).ready(function() {
 
 
   function loadShows() {
-    queryURL = "https://seat-geek-proxy.herokuapp.com/2/events?client_id=ODkxMDA2MnwxNTA1NDc2Njg3Ljkx&client_secret=d03ee2bc8b3508b71abadabe57072965260caf9a20d80887580eb4473fe42620&lat=40.7589&lon=-73.9851&range=2mi&q=broadway&taxonomies.id=3030000&taxonomies.name=theater_broadway";
+    queryURL = "https://api.seatgeek.com/2/events?client_id=ODkxMDA2MnwxNTA1NDc2Njg3Ljkx&client_secret=d03ee2bc8b3508b71abadabe57072965260caf9a20d80887580eb4473fe42620&lat=40.7589&lon=-73.9851&range=2mi&q=broadway&taxonomies.id=3030000&taxonomies.name=theater_broadway";
     $.ajax({
       url: queryURL,
       method: "GET",
@@ -676,7 +676,7 @@ $(document).ready(function() {
     headerDiv.append("We're Sorry. We can not locate that show. Please choose from the shows below.");
     $("#alert-header").append(headerDiv);
 
-    queryURL = "https://seat-geek-proxy.herokuapp.com/2/events?client_id=ODkxMDA2MnwxNTA1NDc2Njg3Ljkx&client_secret=d03ee2bc8b3508b71abadabe57072965260caf9a20d80887580eb4473fe42620&lat=40.7589&lon=-73.9851&range=2mi&q=broadway&taxonomies.id=3030000&taxonomies.name=theater_broadway";
+    queryURL = "https://api.seatgeek.com/2/events?client_id=ODkxMDA2MnwxNTA1NDc2Njg3Ljkx&client_secret=d03ee2bc8b3508b71abadabe57072965260caf9a20d80887580eb4473fe42620&lat=40.7589&lon=-73.9851&range=2mi&q=broadway&taxonomies.id=3030000&taxonomies.name=theater_broadway";
     $.ajax({
       url: queryURL,
       method: "GET",
@@ -1002,7 +1002,7 @@ $(document).ready(function() {
   function prepareWeather() {
 
 
-    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=new+york,ny&appid=660c18977d529d901144cfcb29905e1d";
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=new+york,ny&appid=5f0ec8197da4fafcec187f9767cb2040";
 
     $.ajax({
       url: queryURL,
