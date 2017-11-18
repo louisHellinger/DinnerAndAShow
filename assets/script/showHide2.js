@@ -11,6 +11,7 @@ $(document).ready(function() {
   var showLatg;
   var showLong;
   var showID;
+  var showImage;
 
 
   //console.log(restLat + "," + restLon);
@@ -73,7 +74,7 @@ $(document).ready(function() {
   function goToSeatGeek() {
 
     var seatGeek = showLinker
-    // console.log(showLinker)
+      // console.log(showLinker)
     window.open(
       seatGeek,
       '_blank' // <- This is what makes it open in a new window.
@@ -82,27 +83,25 @@ $(document).ready(function() {
 
 
 
-
-
   function getShowItin() {
     // showTitle = 3662794;
     // showTitle = urlID;
     // console.log(showTitle);
-     //queryURL = "https://seat-geek-proxy.herokuapp.com/2/events?client_id=ODkxMDA2MnwxNTA1NDc2Njg3Ljkx&client_secret=d03ee2bc8b3508b71abadabe57072965260caf9a20d80887580eb4473fe42620&lat=40.7589&lon=-73.9851&range=2mi&q=" + showSearcher + "&taxonomies.id=3030000&taxonomies.name=theater_broadway";
+    //queryURL = "https://seat-geek-proxy.herokuapp.com/2/events?client_id=ODkxMDA2MnwxNTA1NDc2Njg3Ljkx&client_secret=d03ee2bc8b3508b71abadabe57072965260caf9a20d80887580eb4473fe42620&lat=40.7589&lon=-73.9851&range=2mi&q=" + showSearcher + "&taxonomies.id=3030000&taxonomies.name=theater_broadway";
 
     $("#alert-message").css("display", "none");
+
     queryURL = "https://api.seatgeek.com/2/events?client_id=ODkxMDA2MnwxNTA1NDc2Njg3Ljkx&client_secret=d03ee2bc8b3508b71abadabe57072965260caf9a20d80887580eb4473fe42620&lat=40.7589&lon=-73.9851&range=2mi&q=" + showSearcher + "&taxonomies.id=3030000&taxonomies.name=theater_broadway";
     $.ajax({
       url: queryURL,
       method: "GET",
-      dataType: "jsonp"
+      dataType: "json"
     }).done(function(response) {
       if (response.events[0] === undefined) {
         loadShowOptions();
       } else {
         //console.log(response);
         var events = response.events[0].short_title;
-
 
         if (response.events.length === 0) {
           $("#search-show").val("We're sorry, That show is not found");
@@ -132,35 +131,39 @@ $(document).ready(function() {
         var locationAddress = locationStreet + ", " + locationCity;
 
         // this gets the image
-        var counter = 0;
-        // this gets the image
-        for (var j = 0; j < response.events[0].performers.length; j++) {
-          counter++;
-          // console.log("this is the counter" + counter);
+          var eventName = events.toLowerCase().replace(' - new york', '');
+            console.log(eventName);
 
-          // console.log("this is J= " + j);
 
-          //var showImage = null;
+            if (response.events[0].performers[0].image !== null) {
+              showImage = response.events[0].performers[0].image;
+              // console.log("&&&&&&&&&&&&&===========+++&&&&&&&&&&&&&");
+              // console.log(response.events[i].performers[0].image);
 
-          if (response.events[0].performers[j].image != null) {
-            showImage = response.events[0].performers[j].image;
-          } else {
-            //alert("NO IMAGE AVAILABLE");
-            // console.log("no image available");
-            // console.log();
-            // console.log("================================");
+            } else if (!response.events[0].performers[0].image) {
 
-            // alert("show image no luck");
-            showImage = "assets/images/missingImage.jpg";
-          }
-        }
+              for (var j = 0; j < backUpImage.length; j++) {
+                // console.log("made it to the loop to check the backup images");
+                if (backUpImage[j].name == eventName) {
+                  showImage = backUpImage[j].image;
+                } 
+            } 
+              } else {
+              showImage = "assets/images/missingImage.jpg";
+            };
+
+            if (showImage === "") {
+              showImage = "assets/images/missingImage.jpg";
+            };
+
+
 
         // console.log(showImage);
 
 
         var newImage = $("<img>").attr("src", showImage);
 
-        newImage.addClass("recoImage img-thumbnail");
+        newImage.addClass("img-thumbnail");
         newImage.addClass("img-box-shadow");
 
         var newImageContainer = $("<div>");
@@ -208,10 +211,10 @@ $(document).ready(function() {
     var settings = {
       url: "https://yproxy-01.herokuapp.com/" + restSearcher,
       method: "GET"
-      // "headers": {
-      //   "authorization": "bearer BMlbQZVu-BuW_8qt2z7In1JzH3DCwTw4r5HZ8HIsulQjlk5GaJ-sfwpqdyrtFvIy4ipucRHExGN6T9nd-cE9uqzW-nEo8UMKUt2e2PWbSOnX-bH-c2Xkltw1j-S7WXYx",
-      //   "cache-control": "no-cache",
-      // }
+        // "headers": {
+        //   "authorization": "bearer BMlbQZVu-BuW_8qt2z7In1JzH3DCwTw4r5HZ8HIsulQjlk5GaJ-sfwpqdyrtFvIy4ipucRHExGN6T9nd-cE9uqzW-nEo8UMKUt2e2PWbSOnX-bH-c2Xkltw1j-S7WXYx",
+        //   "cache-control": "no-cache",
+        // }
     };
 
     $.ajax(settings).done(function(response) {
@@ -287,7 +290,7 @@ $(document).ready(function() {
     $.ajax({
       url: queryURL,
       method: "GET",
-      dataType: "jsonp"
+      dataType: "json"
     }).done(function(response) {
       if (response.events[0] === undefined) {
         loadShowOptions();
@@ -324,21 +327,30 @@ $(document).ready(function() {
         var locationAddress = locationStreet + ", " + locationCity;
 
         // this gets the image
-        var loop = response.events[0].performers.length;
+          var eventName = events.toLowerCase().replace(' - new york', '');
+            console.log(eventName);
 
-        var counter = 0;
-        // this gets the image
-        for (var j = 0; j < response.events[0].performers.length; j++) {
-          counter++;
 
-          //var showImage = null;
-          if (response.events[0].performers[j].image != null) {
-            showImage = response.events[0].performers[j].image;
-          } else if (counter === response.events[0].performers.length - 1) {
+            if (response.events[0].performers[0].image !== null) {
+              showImage = response.events[0].performers[0].image;
+              // console.log("&&&&&&&&&&&&&===========+++&&&&&&&&&&&&&");
+              // console.log(response.events[i].performers[0].image);
 
-            showImage = "assets/images/missingImage.jpg";
-          }
-        }
+            } else if (!response.events[0].performers[0].image) {
+
+              for (var j = 0; j < backUpImage.length; j++) {
+                // console.log("made it to the loop to check the backup images");
+                if (backUpImage[j].name == eventName) {
+                  showImage = backUpImage[j].image;
+                } 
+            } 
+              } else {
+              showImage = "assets/images/missingImage.jpg";
+            };
+
+            if (showImage === "") {
+              showImage = "assets/images/missingImage.jpg";
+            };
 
         var newImage = $("<img>");
         newImage.attr("src", showImage);
@@ -351,9 +363,7 @@ $(document).ready(function() {
         var newImageContainer = $(BSimgContainerClasses);
         // var newImage = $("<img>").attr("src", showImage);
 
-
-        newImage.addClass("increaseSize");
-        newImage.addClass("recoImage img-thumbnail img-box-shadow2");
+        newImage.addClass("img-thumbnail img-box-shadow2 increaseSize");
         newImageContainer.html(newImage);
 
 
@@ -436,6 +446,7 @@ $(document).ready(function() {
   } //end of getShowFunction
 
 
+  // loads shows on load of home page
 
   function loadShows() {
     queryURL = "https://api.seatgeek.com/2/events?client_id=ODkxMDA2MnwxNTA1NDc2Njg3Ljkx&client_secret=d03ee2bc8b3508b71abadabe57072965260caf9a20d80887580eb4473fe42620&lat=40.7589&lon=-73.9851&range=2mi&q=broadway&taxonomies.id=3030000&taxonomies.name=theater_broadway";
@@ -448,9 +459,13 @@ $(document).ready(function() {
       // sets up suggestions
       var newSuggestion = $("<div id='suggestions' class='row'>");
       //for (var i = 0; i < response.events.length; i++)
-      for (var i = 0; i <= 7; i++) {
-        // console.log(response.events[i].popularity);
+      for (var i = 0; i <= 9; i++) {
+        //console.log(response.events[i].popularity);
+        console.log(response.events[i]);
+
         var events = response.events[i].short_title;
+        console.log(events);
+
         var showID = response.events[i].id;
         //console.log(showID);
         var getIndex = showArray.indexOf(events);
@@ -487,22 +502,37 @@ $(document).ready(function() {
             var location = locationLat + "," + locationLon;
 
             // this gets the image
+            //console.log(response.events[i].performers[0].image.huge);
 
-            var counter = 0;
-            for (var j = 0; j < response.events[i].performers.length; j++) {
-              counter++;
+            var eventName = events.toLowerCase().replace(' - new york', '');
+            console.log(eventName);
 
-              if (response.events[i].performers[j].image != null) {
-                showImage = response.events[i].performers[j].image;
-              } else if (counter === response.events[i].performers.length - 1) {
-                // alert("NO IMAGE AVAILABLE");
-                showImage = "assets/images/missingImage.jpg";
 
-              }
-            }
+            if (response.events[i].performers[0].image !== null) {
+              showImage = response.events[i].performers[0].image;
+              // console.log("&&&&&&&&&&&&&===========+++&&&&&&&&&&&&&");
+              // console.log(response.events[i].performers[0].image);
+
+            } else if (!response.events[i].performers[0].image) {
+
+              for (var j = 0; j < backUpImage.length; j++) {
+                // console.log("made it to the loop to check the backup images");
+                if (backUpImage[j].name == eventName) {
+                  showImage = backUpImage[j].image;
+                } 
+            } 
+              } else {
+              showImage = "assets/images/missingImage.jpg";
+            };
+
+            if (showImage === "") {
+              showImage = "assets/images/missingImage.jpg";
+            };
+
 
             //code for images
-            //console.log("image URL: " + showImage);
+            console.log("image is here");
+            console.log("image URL: " + showImage);
             var BSimgContainerClasses = "<div class='col-lg-4 col-md-4 col-sm-6 col-xs-12 imgContainer'>";
 
             var mainImageContainer = $(BSimgContainerClasses);
@@ -538,6 +568,7 @@ $(document).ready(function() {
 
           }
         }
+        showImage = "";
       } //end for loop
     }); //end of loadShowFunction
   }
@@ -553,10 +584,10 @@ $(document).ready(function() {
     var settings = {
       url: "https://yproxy-01.herokuapp.com/search?location=" + locationVar + "&term=restaurant&limit=3&radius=250",
       method: "GET"
-      // "headers": {
-      //   "authorization": "bearer BMlbQZVu-BuW_8qt2z7In1JzH3DCwTw4r5HZ8HIsulQjlk5GaJ-sfwpqdyrtFvIy4ipucRHExGN6T9nd-cE9uqzW-nEo8UMKUt2e2PWbSOnX-bH-c2Xkltw1j-S7WXYx",
-      //   "cache-control": "no-cache",
-      // }
+        // "headers": {
+        //   "authorization": "bearer BMlbQZVu-BuW_8qt2z7In1JzH3DCwTw4r5HZ8HIsulQjlk5GaJ-sfwpqdyrtFvIy4ipucRHExGN6T9nd-cE9uqzW-nEo8UMKUt2e2PWbSOnX-bH-c2Xkltw1j-S7WXYx",
+        //   "cache-control": "no-cache",
+        // }
     };
 
     $.ajax(settings).done(function(response) {
@@ -699,39 +730,52 @@ $(document).ready(function() {
         var newImage = $("<img>");
         newImage.addClass("img-box-shadow2")
 
-        var loop = response.events[i].performers.length;
+        //var loop = response.events[i].performers.length;
 
-        var counter = 0;
-        // this gets the image
-        for (var j = 0; j < response.events[i].performers.length; j++) {
-          counter++;
-          // console.log("this is the counter" + counter);
+        // var counter = 0;
+        // // this gets the image
+        // for (var j = 0; j < response.events[i].performers.length; j++) {
+        //   counter++;
 
-          // console.log("this is J= " + j);
+        //   if (response.events[i].performers[j].image != null) {
+        //     showImage = response.events[i].performers[j].image;
+        //   } else {
+        //     showImage = "assets/images/missingImage.jpg";
+        //   }
+        // }
 
-          //var showImage = null;
+        var events = response.events[i].short_title; 
 
-          if (response.events[i].performers[j].image != null) {
-            showImage = response.events[i].performers[j].image;
-          } else {
-            //alert("NO IMAGE AVAILABLE");
-            // console.log("no image available");
-            // console.log();
-            // console.log("================================");
+        var eventName = events.toLowerCase().replace(' - new york', '');
+            console.log(eventName);
 
-            // alert("show image no luck");
-            showImage = "assets/images/missingImage.jpg";
-          }
-        }
 
-        // console.log(showImage);
+            if (response.events[i].performers[0].image !== null) {
+              showImage = response.events[i].performers[0].image;
+              // console.log("&&&&&&&&&&&&&===========+++&&&&&&&&&&&&&");
+              // console.log(response.events[i].performers[0].image);
+
+            } else if (!response.events[i].performers[0].image) {
+
+              for (var j = 0; j < backUpImage.length; j++) {
+                // console.log("made it to the loop to check the backup images");
+                if (backUpImage[j].name == eventName) {
+                  showImage = backUpImage[j].image;
+                } 
+            } 
+              } else {
+              showImage = "assets/images/missingImage.jpg";
+            };
+
+            if (showImage === "") {
+              showImage = "assets/images/missingImage.jpg";
+            };
 
 
         var newImage = $("<img>").attr("src", showImage);
 
         newImage.addClass("recoImage img-thumbnail");
         newImage.addClass("img-box-shadow");
-
 
         newImageContainer.html(newImage);
 
@@ -911,10 +955,10 @@ $(document).ready(function() {
     var settings = {
       url: "https://yproxy-01.herokuapp.com/search?location=220%20West%2048th%20Street%2C%20New%20York%2C%20NY&term=restaurant&limit=20&radius=804",
       method: "GET"
-      // "headers": {
-      //   "authorization": "bearer BMlbQZVu-BuW_8qt2z7In1JzH3DCwTw4r5HZ8HIsulQjlk5GaJ-sfwpqdyrtFvIy4ipucRHExGN6T9nd-cE9uqzW-nEo8UMKUt2e2PWbSOnX-bH-c2Xkltw1j-S7WXYx",
-      //   "cache-control": "no-cache",
-      // }
+        // "headers": {
+        //   "authorization": "bearer BMlbQZVu-BuW_8qt2z7In1JzH3DCwTw4r5HZ8HIsulQjlk5GaJ-sfwpqdyrtFvIy4ipucRHExGN6T9nd-cE9uqzW-nEo8UMKUt2e2PWbSOnX-bH-c2Xkltw1j-S7WXYx",
+        //   "cache-control": "no-cache",
+        // }
     };
     $.ajax(settings).done(function(response) {
       var resp = JSON.parse(response);
@@ -1002,7 +1046,8 @@ $(document).ready(function() {
   function prepareWeather() {
 
 
-    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=new+york,ny&appid=5f0ec8197da4fafcec187f9767cb2040";
+
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?zip=10019,us&appid=5f0ec8197da4fafcec187f9767cb2040";
 
     $.ajax({
       url: queryURL,
@@ -1062,9 +1107,9 @@ $(document).ready(function() {
       $("#weather-description").html(weatherDescription);
       $("#temp").html(finalTemp + " °F");
       $("#maxTemp").html("Hi: " + finalMaxTemp + " °F");
-      $("#minTemp").html("<br><br> Low: " + finalMinTemp + " °F");
-      $("#humidity").html("<br> Humidity: " + response.main.humidity + "%");
-      $("#wind").html("<br> Wind: " + response.wind.speed + "mph");
+      $("#minTemp").html("Low: " + finalMinTemp + " °F");
+      $("#humidity").html("Humidity: " + response.main.humidity + "%");
+      $("#wind").html("Wind: " + response.wind.speed + "mph");
 
     })
   } //End prepareWeather function
@@ -1103,8 +1148,6 @@ $(document).ready(function() {
 
 
   };
-
-
 
 
 

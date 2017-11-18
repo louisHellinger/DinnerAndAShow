@@ -6,7 +6,7 @@ html, body {}
   box-sizing: border-box;
 }
 
-div {
+div, table, tr, td {
   /*border:1px solid yellow;*/
 }
 
@@ -31,7 +31,7 @@ div {
 }
 
 #header-copy {
-  font-size: 20px;
+  font-size: 18px;
   text-align: center;
   font-weight: bold;
   margin-bottom: 20px;
@@ -248,7 +248,9 @@ p .plot {
 img.recoImage {
   display: inline;
   margin-left: 10px;
-  /*height:300px;*/
+  height:250px;
+  /*width:auto;*/
+
   /*float:left;*/
 }
 
@@ -350,7 +352,7 @@ img.recoImage {
 }
 
 .increaseSize {
-  width: 600px;
+  height: 500px;
 }
 
 #alert-header {
@@ -464,6 +466,7 @@ img.recoImage {
 
 #weather-map-container {
   margin-top: 15px;
+  background-color: #000;
   /*max-width:1000px;*/
 }
 
@@ -473,6 +476,7 @@ img.recoImage {
   width: 410px;
   height: 370px;
   margin: 0 auto;
+  background-color: #000;
 }
 
 #google-map {
@@ -484,7 +488,7 @@ img.recoImage {
 
 #table {
   width: 400px;
-  height: 262px;
+  /*height: 262px;*/
   font-size: 15px;
   background-color: #000;
   color: white;
@@ -492,11 +496,12 @@ img.recoImage {
 
 #table td {
   font-size: 17px;
+  /*padding: 5px 0px;*/
 }
 
 .main-weather {
   text-align: center;
-  width: 58%;
+  width: 50%;
   border-right: 1px solid white;
 }
 
@@ -508,10 +513,9 @@ img.recoImage {
 
 #weather-title-heading {
   font-family: AbrahamLincoln, Times, serif;
-  font-size: 45px;
+  font-size: 48px;
   text-align: center;
-  color: #970606;
-  font-family: ;
+  color: white;
 }
 
 .clear {
@@ -529,7 +533,7 @@ img.recoImage {
 #icon {
   height: 100px;
   width: 110px;
-  margin: 0 0 0 60px;
+  margin: 0 auto;
 }
 
 #weather-description {
@@ -538,7 +542,9 @@ img.recoImage {
 }
 
 .other-weather-info {
-  padding-left: 30px;
+  padding: 0px 30px;
+  height:50px;
+  vertical-align: center;
 }
 
 
@@ -566,7 +572,7 @@ img.recoImage {
 .clearNight {
   background-image: url('../images/weather-icons.png');
   background-repeat: no-repeat;
-  background-position: -445px -110px;
+  background-position: -436px -110px;
 }
 
 .cloudy {
