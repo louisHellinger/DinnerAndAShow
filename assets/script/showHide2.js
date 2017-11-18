@@ -164,7 +164,7 @@ $(document).ready(function() {
         var newImage = $("<img>").attr("src", showImage);
 
         newImage.addClass("img-thumbnail");
-        newImage.addClass("img-box-shadow");
+        // newImage.addClass("img-box-shadow");
 
         var newImageContainer = $("<div>");
         newImageContainer.html(newImage);
