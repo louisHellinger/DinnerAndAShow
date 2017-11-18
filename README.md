@@ -2,7 +2,5 @@
 
 This application is a resource for finding and purchasing broadway theatre tickets and then pairing it with a restaurant that is nearby. The app uses 4 APIsL: SeatGeek for tickets, Yelp for restaurants, Google Maps for directions and OpenWeather for current weather.
 
-## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
