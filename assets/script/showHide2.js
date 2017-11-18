@@ -156,19 +156,14 @@ $(document).ready(function() {
               showImage = "assets/images/missingImage.jpg";
             };
 
-
-
         // console.log(showImage);
 
 
         var newImage = $("<img>").attr("src", showImage);
 
-        newImage.addClass("img-thumbnail");
-        newImage.addClass("img-box-shadow2");
-
         var newImageContainer = $("<div>");
         newImageContainer.html(newImage);
-        newImage.addClass("image300px img-thumbnail");
+        newImage.addClass("image300px img-thumbnail img-box-shadow2");
 
         var newDescription;
 
