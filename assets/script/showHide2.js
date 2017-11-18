@@ -88,9 +88,10 @@ $(document).ready(function() {
     // showTitle = 3662794;
     // showTitle = urlID;
     // console.log(showTitle);
+     //queryURL = "https://seat-geek-proxy.herokuapp.com/2/events?client_id=ODkxMDA2MnwxNTA1NDc2Njg3Ljkx&client_secret=d03ee2bc8b3508b71abadabe57072965260caf9a20d80887580eb4473fe42620&lat=40.7589&lon=-73.9851&range=2mi&q=" + showSearcher + "&taxonomies.id=3030000&taxonomies.name=theater_broadway";
 
     $("#alert-message").css("display", "none");
-    queryURL = "https://seat-geek-proxy.herokuapp.com/2/events?client_id=ODkxMDA2MnwxNTA1NDc2Njg3Ljkx&client_secret=d03ee2bc8b3508b71abadabe57072965260caf9a20d80887580eb4473fe42620&lat=40.7589&lon=-73.9851&range=2mi&q=" + showSearcher + "&taxonomies.id=3030000&taxonomies.name=theater_broadway";
+    queryURL = "https://api.seatgeek.com/2/events?client_id=ODkxMDA2MnwxNTA1NDc2Njg3Ljkx&client_secret=d03ee2bc8b3508b71abadabe57072965260caf9a20d80887580eb4473fe42620&lat=40.7589&lon=-73.9851&range=2mi&q=" + showSearcher + "&taxonomies.id=3030000&taxonomies.name=theater_broadway";
     $.ajax({
       url: queryURL,
       method: "GET",
