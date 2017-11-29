@@ -8,7 +8,7 @@ This application is a resource for finding and purchasing broadway theatre ticke
 
 
 ## HOMEPAGE
-On initial visit, the site automatically displays a selection of popular shows for the user to choose from.
+On initial load, the site automatically displays a selection of popular shows for the user to choose from.
 
 Otherwise the user can search for a specific show they are interested in.
 
