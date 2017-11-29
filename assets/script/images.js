@@ -8,7 +8,7 @@ var backUpImage = [
 		"image": "assets/showImages/the-last-match.jpg"
 	},
 		{
-		"name": "junk",
+		"name": "junk the golden age of debt",
 		"image": "assets/showImages/junk.jpg"
 	},
 		{
@@ -46,4 +46,3 @@ var backUpImage = [
 
 
 ]
-
